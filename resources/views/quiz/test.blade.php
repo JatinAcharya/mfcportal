@@ -1,26 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-
-<div class="col-md-12 col-sm-10">
+<div class="col-md-13 col-sm-8" style="margin-left:auto;margin-right:auto">
     <h3 class="text-center">Click on Button to answer question</h3>
     <h3 class="text-center"><b>P</b>: Pending  <b>D</b>: Done</h3>
     <div class="container">
     @foreach($questions as $question)
         @if($question->ques_ans == 1)
-        <button type="button" class="attendance-card col-xs-2 col-sm-2 col-md-1 btn-success" style="margin: 0.5%" data-toggle="modal" data-target="#questionModal{{$question->ques_id}}">
+        <button type="button" class="attendance-card col-xs-2 col-sm-2 col-md-3 btn-success" style="margin: 0.5%" data-toggle="modal" data-target="#questionModal{{$question->ques_id}}">
             <span id="info {{ $question->ques_set_id }}" class="state">D</span>
             <div class="roll-no text-center">{{ $question->ques_id }}</div>
             <div class="text-center name">{{$question->ques_set_name}}</div>
         </button>
         @else
-        <button type="button" class="attendance-card col-xs-2 col-sm-2 col-md-1 btn-warning" style="margin: 0.5%" data-toggle="modal" data-target="#questionModal{{$question->ques_id}}">
+        <button type="button" class="attendance-card col-xs-2 col-sm-2 col-md-3 btn-warning" style="margin: 0.5%" data-toggle="modal" data-target="#questionModal{{$question->ques_id}}">
             <span id="info {{ $question->ques_set_id }}" class="state">P</span>
             <div class="roll-no text-center">{{ $question->ques_id }}</div>
             <div class="text-center name">{{$question->ques_set_name}}</div>
         </button>
         @endif
-
+        
         <div id="questionModal{{$question->ques_id}}" class="modal fade" role="dialog">
             <div class="modal-dialog">
         

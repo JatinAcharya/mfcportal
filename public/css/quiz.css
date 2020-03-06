@@ -1,6 +1,6 @@
 .attendance-card {
-    margin: 3px;
-    padding: 1px;
+    margin: 5px;
+    padding: 3px;
     border-radius: 5px;
     height: 110px;
   }
@@ -18,7 +18,27 @@
   .attendance-card .name {
     text-transform: capitalize;
   }
-  
+
+  .size{
+    font-size: xx-large;
+    font-weight: 550;
+    color:black
+  }
+
+.cust{
+  margin: 10px;
+  height: 220px;
+}
+
+.txt{
+  margin:10px;
+}
+
+.img{
+  margin: 10px;
+  border: black solid 1px;
+}
+
   @media (max-width: 768px) {
     #page-heading {
       margin-top: 140px;
@@ -29,7 +49,7 @@
     }
   
     .attendance-card {
-      margin: 3px;
+      margin: 6px;
     }
   
     .attendance-card .roll-no {
@@ -63,7 +83,7 @@
 	text-align: left;
 }
 
-.close {
+  .close {
     float: right;
     font-size: 21px;
     font-weight: bold;

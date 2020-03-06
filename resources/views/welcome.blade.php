@@ -12,8 +12,15 @@
         <link rel="stylesheet" href ="{{ asset('css/app.css') }}">
 
         <!-- Styles -->
-        <!-- <style>
-            html, body {
+         <style>
+             html{
+                 scroll-behavior:smooth;
+             }
+             .test{
+                 padding:50px;
+             }
+
+            /* html, body {
                 background-color: #fff;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
@@ -62,8 +69,8 @@
 
             .m-b-md {
                 margin-bottom: 30px;
-            }
-        </style> -->
+            } */
+        </style> 
     </head>
     <body>
     
@@ -78,19 +85,19 @@
                 <nav id="nav-menu-container">
                     
                 <ul class="nav-menu">
-                        <li class="menu-active"><a href="/">Home</a></li>
-                        <li><a href="contact.html">Contact</a></li>	
-                        @if (Route::has('login'))
-                        @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                        @else
-                        <li><a href="{{ route('login') }}">Login</a></li>	
-                        @if (Route::has('register'))
-                        <li><a href="{{ route('register') }}">Register</a></li>	
-                        @endif	
-                        @endauth
-                        @endif	          				          
-                    </ul>
+                    <li class="menu-active"><a href="/">Home</a></li>
+                    <li><a href="#contact">Contact</a></li>	
+                    @if (Route::has('login'))
+                    @auth
+                    <a href="{{ url('/home') }}">Home</a>
+                    @else
+                    <li><a href="{{ route('login') }}">Login</a></li>	
+                    @if (Route::has('register'))
+                    <li><a href="{{ route('register') }}">Register</a></li>	
+                    @endif	
+                    @endauth
+                    @endif	          				          
+                </ul>
                 </nav><!-- #nav-menu-container -->		    		
                 </div>
             </div>
@@ -127,6 +134,73 @@
             </div>
         </div>
     </section>
+
+<!-- Banner Area Starts -->
+<section class="other-page test" id="contact" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Contact Us</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner Area End -->
+
+
+    <!-- Contact Form Starts -->
+    <section class="contact-form section-padding3"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 mb-5 mb-lg-0">
+                    <div class="d-flex">
+                        <div class="into-icon">
+                            <i class="fa fa-home"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>VESIT, MUMBAI</h3>
+                            <p>Chembur, Mumbai</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="into-icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>1234567891</h3>
+                            <p>Mon to Fri 8am to 6 pm</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="into-icon">
+                            <i class="fa fa-envelope-o"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>email@example.com</h3>
+                            <p>Send us your query anytime!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <form action="#">
+                        <div class="left">
+                            <input type="text" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" required>
+                            <input type="email" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" required>
+                            <input type="text" placeholder="Enter subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter subject'" required>
+                        </div>
+                        <div class="right">
+                            <textarea name="message" cols="20" rows="7"  placeholder="Enter Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" required></textarea>
+                        </div>
+                        <button type="submit" class="template-btn">subscribe now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Form End -->
+
+
+
 
     </body>
 </html>
