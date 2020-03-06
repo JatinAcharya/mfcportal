@@ -34,7 +34,8 @@
                         <p><b>Ouestion: </b>{{$question->ques}}</p>
                         
                         <p>
-                            <form action="quizController@update" method="post">
+                            <form action="/quiz/update" method="post">
+                            @csrf
 					        	@if($question->ques_ans == 1)
 		        			        <b><p style="color: red">Already Answered!</p> However, you may update it.</b>
 							        <!-- <input class="form-control" name="rfid" value="" required> -->
