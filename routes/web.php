@@ -22,3 +22,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/quiz', 'quizController@index');
 Route::POST('/quiz/update', 'quizController@update');
+Route::get('/generateScore/{id}', 'quizController@generate');
+Route::get('/result', 'HomeController@score');

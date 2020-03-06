@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
+use Auth;
 
 class quizController extends Controller
 {
@@ -53,9 +54,13 @@ class quizController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function generate($id)
     {
-        //
+        $questionAnswered = DB::table('choice')->where('ques_ans', '1')->get();
+        $count = $questionAnswered->count();
+        $sumOfScore = DB::table('choice')->where([['ques_ans', '1'], ['userId', $id]])->sum('marks');
+        DB::update('UPDATE question set ques_ans = 0 WHERE ques_ans = 1');
+        return view('layouts.result')->with('sum', $sumOfScore)->with('noOfQuestionAnswered', $count)->with('details', $questionAnswered);
     }
 
     /**
@@ -76,9 +81,22 @@ class quizController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function update(Request $request)
     {
-        return('gg');
+        // return(Auth::user()->id);
+        $ques_id = $request->question_id;
+        // return($ques_id);
+        $score = DB::table('response_scale')->where('scale', '=', $request->quiz)->value('score');
+        DB::update("UPDATE question set ques_ans = 1 WHERE ques_id = $ques_id");
+        
+        $values = array('userId'=>Auth::user()->id, 'ques_id'=>$ques_id, 'marks' => $score, 'ques_ans'=>1 ) ;
+        DB::table('choice')->insert($values);
+        $quizs = DB::table('question')->join('question_set', function($join){
+            $join->on('question.ques_set_id', '=', 'question_set.ques_set_id');
+        })
+        ->get();
+        return redirect()->back()->with('questions', $quizs);
     }
 
     /**

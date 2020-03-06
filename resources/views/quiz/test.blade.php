@@ -5,6 +5,7 @@
 <div class="col-md-12 col-sm-10">
     <h3 class="text-center">Click on Button to answer question</h3>
     <h3 class="text-center"><b>P</b>: Pending  <b>D</b>: Done</h3>
+    <div class="container">
     @foreach($questions as $question)
         @if($question->ques_ans == 1)
         <button type="button" class="attendance-card col-xs-2 col-sm-2 col-md-1 btn-success" style="margin: 0.5%" data-toggle="modal" data-target="#questionModal{{$question->ques_id}}">
@@ -81,7 +82,7 @@
 
 						</div>
                                 <br>
-                                    <input name="uid" value="{{$question->ques_id}}" type="hidden">
+                                    <input name="question_id" value="{{$question->ques_id}}" type="hidden">
 
                                 <input class="col-md-4 col-md-offset-4  btn btn-success" type="submit" name="submit" value="Update Answer">
                                 </form>
@@ -96,6 +97,8 @@
             </div>
         </div>
     @endforeach
+    <a href="/generateScore/{{Auth::user()->id}}"><button class = 'btn btn-success'>Generate Score</button></a>
+    </div>
 </div>
 
 
