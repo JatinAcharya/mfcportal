@@ -13,7 +13,15 @@ class quizController extends Controller
      */
     public function index()
     {
-        $quizs = DB::table('question')->get();
+        // $quizs = DB::table('question')->join('question_set', funtion($join){
+        //     $join->on('question.ques_set_id', '=', 'question_set.ques_set_id')
+        // })->orderby('ques_set_id')
+        // ->get();
+        // return($quizs);
+        $quizs = DB::table('question')->join('question_set', function($join){
+            $join->on('question.ques_set_id', '=', 'question_set.ques_set_id');
+        })
+        ->get();
         // return($quizs);
         return view('/quiz/test')->with('questions', $quizs);
     }
@@ -68,9 +76,9 @@ class quizController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        return('gg');
     }
 
     /**

@@ -1,0 +1,42 @@
+.attendance-card {
+    margin: 3px;
+    padding: 1px;
+    border-radius: 5px;
+    height: 110px;
+  }
+  
+  .attendance-card .roll-no {
+    font-size: 3em;
+  }
+  
+  .attendance-card span {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+  }
+  
+  .attendance-card .name {
+    text-transform: capitalize;
+  }
+  
+  @media (max-width: 768px) {
+    #page-heading {
+      margin-top: 140px;
+    }
+  
+    #banner {
+      margin-top: 60px;
+    }
+  
+    .attendance-card {
+      margin: 3px;
+    }
+  
+    .attendance-card .roll-no {
+      font-size: 2em;
+    }
+  
+    .attendance-card .name {
+      font-size: 0.9em;
+    }
+  }
