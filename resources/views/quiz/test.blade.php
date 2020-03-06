@@ -26,8 +26,8 @@
             <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">{{$question->ques}}</h4>
+                        <h4 class="modal-title">{{$question->ques}}</h4>
+                        <button type="button" class="close"  data-dismiss="modal" >&times;</button>
                     </div>
                     <div class="modal-body">
                         <p><b>Question Number: </b>{{$question->ques_id}}</p>
@@ -40,10 +40,46 @@
 		        			        <b><p style="color: red">Already Answered!</p> However, you may update it.</b>
 							        <!-- <input class="form-control" name="rfid" value="" required> -->
 						        @else
-		        			        <b>RFID: </b>
+		        			        <b>Options: </b>
                                     <!-- OPtions -->
                                 @endif
-                                    <input type="text" class="form-control" name="questionAnswer" value="" id="questionAnswer" required>
+                                <div id="option_container">
+							<ul>
+								<li>
+									<input type="radio" id="option_1" name="quiz" value="Very Much" class="radio">
+									<label for="option_1" id="option1">Very Much</label>
+
+									<div class="check"></div>
+								</li>
+
+								<li>
+									<input type="radio" id="option_2" name="quiz" value="Sometimes" class="radio">
+									<label for="option_2" id="option2">Sometimes</label>
+
+									<div class="check">
+										<div class="inside"></div>
+									</div>
+								</li>
+
+								<li>
+									<input type="radio" id="option_3" name="quiz" value="Rarely" class="radio">
+									<label for="option_3" id="option3">Rarely</label>
+
+									<div class="check">
+										<div class="inside"></div>
+									</div>
+								</li>
+								<li>
+									<input type="radio" id="option_4" name="quiz" value="Never" class="radio">
+									<label for="option_4" id="option4">Never</label>
+
+									<div class="check">
+										<div class="inside"></div>
+									</div>
+								</li>
+							</ul>
+
+						</div>
                                 <br>
                                     <input name="uid" value="{{$question->ques_id}}" type="hidden">
 
