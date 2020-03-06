@@ -4,13 +4,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>MHC-Portal</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href ="{{ asset('css/landing_style.css') }}">
+        <link rel="stylesheet" href ="{{ asset('css/app.css') }}">
 
         <!-- Styles -->
-        <style>
+        <!-- <style>
             html, body {
                 background-color: #fff;
                 color: #636b6f;
@@ -61,10 +63,43 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
-        </style>
+        </style> -->
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+    
+    <!-- Header Area Starts -->
+    <header class="header-area">
+        <div id="header" id="home">
+            <div class="container">
+                <div class="row align-items-center justify-content-between d-flex">
+                <div id="logo">
+                    <a href="index.html"><img src="{{asset('images/logo.png')}}" alt="" title="" /></a>
+                </div>
+                <nav id="nav-menu-container">
+                    
+                <ul class="nav-menu">
+                        <li class="menu-active"><a href="/">Home</a></li>
+                        <li><a href="contact.html">Contact</a></li>	
+                        @if (Route::has('login'))
+                        @auth
+                        <a href="{{ url('/home') }}">Home</a>
+                        @else
+                        <li><a href="{{ route('login') }}">Login</a></li>	
+                        @if (Route::has('register'))
+                        <li><a href="{{ route('register') }}">Register</a></li>	
+                        @endif	
+                        @endauth
+                        @endif	          				          
+                    </ul>
+                </nav><!-- #nav-menu-container -->		    		
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Area End -->
+
+    
+    <!-- <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -78,23 +113,20 @@
                     @endauth
                 </div>
             @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+        </div> -->
+    <!-- Banner Area Starts -->
+    <section class="banner-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <h4>Caring for better life</h4>
+                    <h1>Leading the way in medical excellence</h1>
+                    <p>Earth greater grass for good. Place for divide evening yielding them that. Creeping beginning over gathered brought.</p>
+                    <a href="" class="template-btn mt-3">Take Quiz</a>
                 </div>
             </div>
         </div>
+    </section>
+
     </body>
 </html>
