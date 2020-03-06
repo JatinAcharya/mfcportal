@@ -23,6 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/contact', 'HomeController@contact');
 Route::get('/doctor', 'HomeController@doctor');
 Route::get('/treatment', 'HomeController@treatment');
+Route::get('/community', 'HomeController@community');
 Route::get('/quiz', 'quizController@index');
 Route::POST('/quiz/update', 'quizController@update');
 Route::get('/generateScore/{id}', 'quizController@generate');

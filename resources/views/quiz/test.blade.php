@@ -96,9 +96,10 @@
             </div>
         </div>
     @endforeach
-    <a href="/generateScore/{{Auth::user()->id}}"><button class = 'btn btn-success'>Generate Score</button></a>
     </div>
 </div>
+<a href="/generateScore/{{Auth::user()->id}}"><button class = 'btn btn-success ' style="margin-left:40%; margin-top:20px;">Generate Score</button></a>
+
 
 
 <script type="text/javascript">

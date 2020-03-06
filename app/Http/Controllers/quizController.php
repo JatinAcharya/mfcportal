@@ -60,6 +60,7 @@ class quizController extends Controller
         $count = $questionAnswered->count();
         $sumOfScore = DB::table('choice')->where([['ques_ans', '1'], ['userId', $id]])->sum('marks');
         DB::update('UPDATE question set ques_ans = 0 WHERE ques_ans = 1');
+        DB::update('UPDATE choice set ques_ans = 0 WHERE ques_ans = 1');
         return view('layouts.result')->with('sum', $sumOfScore)->with('noOfQuestionAnswered', $count)->with('details', $questionAnswered);
     }
 

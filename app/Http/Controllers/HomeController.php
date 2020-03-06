@@ -37,4 +37,8 @@ class HomeController extends Controller
     {
         return view('doctors/treatment');
     }
+    public function community()
+    {
+        return view('community/community');
+    }
 }
