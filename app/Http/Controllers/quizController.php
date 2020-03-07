@@ -61,7 +61,20 @@ class quizController extends Controller
         $sumOfScore = DB::table('choice')->where([['ques_ans', '1'], ['userId', $id]])->sum('marks');
         DB::update('UPDATE question set ques_ans = 0 WHERE ques_ans = 1');
         DB::update('UPDATE choice set ques_ans = 0 WHERE ques_ans = 1');
-        return view('layouts.result')->with('sum', $sumOfScore)->with('noOfQuestionAnswered', $count)->with('details', $questionAnswered);
+        if($count>0){
+            $count = $count*4;
+            $avg = $sumOfScore/$count;
+            $percent = 100 - $avg*100;
+
+        }else{
+            $percent = 0;
+        }
+
+        // return($questionAnswered);
+        // return($sumOfScore);
+        // return($percent);
+        // return($questionAnswered);
+        return view('layouts.result')->with('sum', $sumOfScore)->with('noOfQuestionAnswered', $count)->with('percent', $percent);
     }
 
     /**

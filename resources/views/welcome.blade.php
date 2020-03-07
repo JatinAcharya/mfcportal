@@ -89,7 +89,7 @@
                     <li><a href="#contact">Contact</a></li>	
                     @if (Route::has('login'))
                     @auth
-                    <a href="{{ url('/home') }}">Home</a>
+                    <a href="{{ url('/home') }}">Dashboard</a>
                     @else
                     <li><a href="{{ route('login') }}">Login</a></li>	
                     @if (Route::has('register'))
